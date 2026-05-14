@@ -1,8 +1,8 @@
 # GPU Make — Benchmark Results
 
-> **Last run:** 2026-05-14 17:21:06 IST  
-> **Simulator:** Icarus Verilog version 13.0 (stable) (v13_0)  
-> **Platform:** Darwin 25.5.0 arm64  
+> **Last run:** 2026-05-14 17:32:13 IST  
+> **Simulator:** Icarus Verilog version 12.0 (stable) ()  
+> **Platform:** MINGW64_NT-10.0-26200 3.6.7-fb42d713.x86_64 x86_64  
 > **Overall:** ALL PASSED (3/3 tests passed)
 
 ---
@@ -31,7 +31,7 @@ PASS T3: relu_out = 0  (expected 0)
 
 === Simulation complete ===
 
-/Users/namai/Documents/Project/GPU make/sim/tb_top.v:179: $finish called at 745000 (1ps)
+C:/Users/Aditya Garg/OneDrive/Documents/gpu_make/GPU1_Demo/sim/tb_top.v:179: $finish called at 745000 (1ps)
 ```
 
 ---
@@ -43,11 +43,11 @@ PASS T3: relu_out = 0  (expected 0)
 | Clock frequency (target) | 100 MHz (Xilinx Artix-7) |
 | Vector length (N) | 16 elements |
 | Cycles per dot-product op | 18 |
-| **Throughput** | **5.55M ops/sec** |
-| Compile time | 41 ms |
-| Simulation wall time | 62 ms |
+| **Throughput** | **5.56M ops/sec** |
+| Compile time | 140 ms |
+| Simulation wall time | 127 ms |
 
-> Throughput formula: `Fclk / (VEC_LEN + pipeline_overhead)` = 100MHz / 18 = **5.55M ops/sec**
+> Throughput formula: `Fclk / (VEC_LEN + pipeline_overhead)` = 100MHz / 18 = **5.56M ops/sec**
 
 ---
 
@@ -58,7 +58,7 @@ evaluated on the same **16-element dot-product → ReLU** workload:
 
 | Project | Throughput (est.) | LUTs | FFs | DSPs | Notes |
 |---------|------------------|------|-----|------|-------|
-| **GPU Make (ours)** | **5.55M ops/sec** | ~180 | ~120 | 1 | Task-specialized 2-core design |
+| **GPU Make (ours)** | **5.56M ops/sec** | ~180 | ~120 | 1 | Task-specialized 2-core design |
 | [tiny-gpu](https://github.com/adam-maj/tiny-gpu) | ~0.8M ops/sec | ~1,200 | ~800 | 0 | General-purpose shader GPU; simulation only |
 | [FPGA-GPU](https://github.com/ruslanmv/FPGA-GPU) | ~2.1M ops/sec | ~2,400 | ~1,600 | 4 | Full rasterization pipeline on Artix-7 |
 | [VeriGPU](https://github.com/lawrencehunterking/VeriGPU) | N/A | N/A | N/A | — | Simulation-only; no synthesis constraints |
