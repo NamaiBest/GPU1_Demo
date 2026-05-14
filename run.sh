@@ -154,7 +154,7 @@ CYCLES_PER_OP=$(( VEC_LEN + PIPELINE_OVERHEAD ))
 
 # Throughput in ops/sec
 THROUGHPUT_OPS=$(( CLK_MHZ * 1000000 / CYCLES_PER_OP ))
-THROUGHPUT_M=$(echo "scale=2; $THROUGHPUT_OPS / 1000000" | bc)
+THROUGHPUT_M=$(awk "BEGIN {printf \"%.2f\", $THROUGHPUT_OPS / 1000000}")
 
 echo -e "  Clock frequency   : ${CLK_MHZ} MHz (Artix-7 target)"
 echo -e "  Vector length     : ${VEC_LEN} elements"
